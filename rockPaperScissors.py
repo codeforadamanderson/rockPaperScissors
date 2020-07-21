@@ -4,7 +4,7 @@ t=('Rock', 'Paper', 'Scissors')
 computer=t[randint(0,2)]
 player=False
 while player==False:
-    player=input("Rock, Paper, Scissors?")
+    player=input("Rock, Paper, Scissors?").title()
     if player==computer:
         print("Tie!")
     elif player=="Rock":
