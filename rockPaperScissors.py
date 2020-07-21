@@ -1,6 +1,7 @@
 # Version 1.0 - Initial code - Jacob Anderson
 # Version 1.1 - Input case insensitivity - Adam Anderson
 # Version 1.2 - Include quit option - Adam Anderson
+# Version 1.3 - Added explosives - Adam Anderson
 
 from random import randint
 t=('Rock', 'Paper', 'Scissors')
@@ -25,6 +26,10 @@ while player==False:
             print("You lose!", computer, "smashes", player)
         else:
             print("You win!", player, "cut", computer)
+    elif player=="Bomb":
+        print("Boom!")
+        player=False
+        break
     else:
         print("That's not a valid play.  Check your spelling!")
     quit=input("Keep playing? (Y/N):").upper()
