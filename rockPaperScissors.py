@@ -1,40 +1,34 @@
-# Version 1.0 - Initial code - Jacob Anderson
-# Version 1.1 - Input case insensitivity - Adam Anderson
-# Version 1.2 - Include quit option - Adam Anderson
-# Version 1.3 - Added explosives - Adam Anderson
+# Simple Rock Paper Scissors game based on code sent over by Jacob Anderson.
+from random import choice
 
-from random import randint
-t=('Rock', 'Paper', 'Scissors')
-computer=t[randint(0,2)]
-player=False
-while player==False:
-    player=input("Rock, Paper, Scissors?").title()
-    if player==computer:
-        print("Tie!")
-    elif player=="Rock":
-        if computer=="Paper":
-            print("You lose!", computer, "covers", player)
+options = ('rock', 'paper', 'scissors')
+
+while True:
+    computer = choice(options)
+    print("\nRock, Paper, or Scissors?")
+    player = input("Enter 'q' to quit: ").lower()
+    
+    if player == computer:
+        print(f"\nTie!  The computer also chose {player}.")
+    elif player == "rock":
+        if computer == "paper":
+            print(f"\nYou lose!  {computer.title()} covers {player}.")
         else:
-            print("You win!", player, "smashes", computer)
-    elif player=="Paper":
-        if computer=="Scissors":
-            print("You lose!", computer,"cut", player)
+            print(f"\nYou win!  {player.title()} smashes {computer}.")
+    elif player == "paper":
+        if computer == "scissors":
+            print(f"\nYou lose!  {computer.title()} cuts {player}.")
         else:
-            print("You win!", player,"covers", computer)
-    elif player=="Scissors":
-        if computer=="Rock":
-            print("You lose!", computer, "smashes", player)
+            print(f"\nYou win! {player.title()} covers {computer}.")
+    elif player == "scissors":
+        if computer == "rock":
+            print(f"\nYou lose!  {computer.title()} smashes {player}.")
         else:
-            print("You win!", player, "cut", computer)
-    elif player=="Bomb":
-        print("Boom!")
-        player=False
+            print(f"\nYou win!  {player.title()} cuts {computer}.")
+    elif player == "bomb":
+        print("\nBoom!")
+        break
+    elif player == 'q':
         break
     else:
-        print("That's not a valid play.  Check your spelling!")
-    quit=input("Keep playing? (Y/N):").upper()
-    if quit=="N":
-        player=True
-    else:
-        player=False
-    computer=t[randint(0,2)]
+        print("\nThat's not a valid play.  Check your spelling!")
